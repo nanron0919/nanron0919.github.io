@@ -97,7 +97,7 @@
   <h1>實作 TPBL Fantasy 心得</h1>
   <p>故事都有個開始…</p>
 <p>先說明一下標題</p>
-<p><img src="/project/images/tpbl-fantasy/8f411cc8e2be6c2b3af2be096e1a1f3c27b841e4ae9e309f2bd73f2e6f3f2f62.png" alt="網站截圖"></p>
+<p><img src="/images/tpbl-fantasy/8f411cc8e2be6c2b3af2be096e1a1f3c27b841e4ae9e309f2bd73f2e6f3f2f62.png" alt="網站截圖"></p>
 <p>這件事開始於兩個待業人士兼棒球迷的抬槓，從中文媒體的品質，聊到職涯發展的選擇，然後 Adam 突然決定要召集一個團隊，來自幹一個 Fantasy Baseball。其實在四月前後，線上也有兩種實踐的方法：第一個<a target="_blank" rel="noopener" href="https://www.sportsv.net/articles/73160">城牆用 google doc 做的</a>，第二個則是用問卷系統，這兩種做法都非常的有創意且實際，但工程師就要用工程師的方法</p>
 <p>於是很快開始我們的第一次會議，決定怎麼分工及最重要的遊戲規則，Blues 提供了超豐富的經驗，幫助我們在這天決定了這個產品的三大要素</p>
 <ol>
@@ -111,7 +111,7 @@
 <h2 id="官網沒有-https-耶"><a href="#官網沒有-https-耶" class="headerlink" title="官網沒有 https 耶"></a>官網沒有 https 耶</h2><p>連我這個個人 blog 都有了，用 <a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-tw/getting-started/">Let’s Encrypt</a> 可以很容易的建立安全的網站， 如果想花錢的話，買一個 dv 等級的 ssl certificate，大概台幣 300 元左右</p>
 <h2 id="Server-Side-Rendering"><a href="#Server-Side-Rendering" class="headerlink" title="Server-Side Rendering"></a>Server-Side Rendering</h2><p>而且完全沒有 ajax 相關的功能，這樣寫爬蟲超方便，只需要 fetch + <a target="_blank" rel="noopener" href="https://github.com/cheeriojs/cheerio">Cheerio</a>。順便一提，如果是 SPA 的話，我個人推薦 <a target="_blank" rel="noopener" href="https://github.com/puppeteer/puppeteer">Puppeteer</a>，它可以模擬實際瀏覽器的行為，拿來做 end-to-end 測試也很好用</p>
 <h2 id="Source-結構超髒"><a href="#Source-結構超髒" class="headerlink" title="Source 結構超髒"></a>Source 結構超髒</h2><p>打開官網的 source 彷彿看到了上個世紀的網站 (還是本來就是?)，連 doctype 都是 html 4，然後裡面的 static resource 有 elta 耶</p>
-<p><img src="/project/images/tpbl-fantasy/118ebb8db8f5793cf784df00b8e3adc6dd2ccbc861c93e85d9bb9885c0c48a08.png" alt="節錄某一段，不能只有我看到"></p>
+<p><img src="/images/tpbl-fantasy/118ebb8db8f5793cf784df00b8e3adc6dd2ccbc861c93e85d9bb9885c0c48a08.png" alt="節錄某一段，不能只有我看到"></p>
 <h2 id="站內連結格式錯誤且太多多餘參數"><a href="#站內連結格式錯誤且太多多餘參數" class="headerlink" title="站內連結格式錯誤且太多多餘參數"></a>站內連結格式錯誤且太多多餘參數</h2><p>正常來說的 query string 應該是 ? 開頭，每組參數間以 &amp; 分隔，例如:</p>
 <p><code>?type=001&amp;id=2020001</code></p>
 <p>而中職網站內的連結則是</p>
@@ -121,16 +121,16 @@
 <p><code>/schedule/index/2020-05-13.html?&amp;date=2020-05-13&amp;gameno=01&amp;sfieldsub=&amp;sgameno=01</code></p>
 <p>優良一點的設計應該是 <code>/schedule/202005</code> ，如果要顯示二軍的話，可以用 <code>schedule/202005/minor</code> 就好</p>
 <p>然後居然沒有以週為單位的 schedule!?</p>
-<h2 id="莫名其妙的-Boxscore"><a href="#莫名其妙的-Boxscore" class="headerlink" title="莫名其妙的 Boxscore"></a>莫名其妙的 Boxscore</h2><p><img src="/project/images/tpbl-fantasy/6c5bdda42f9427e2e61d968886c7a099c936896fb81e281cddeb3257a5de2b6b.png" alt="沒點 more 前呈現的資料，我覺得這樣其實 ok"></p>
-<p><img src="/project/images/tpbl-fantasy/f5b0283d61b8a06e1a8be620cc783a6bf62c1232cbbacd48d9717b9eb1d7eff1.png" alt="點 more 會出現的 popup"></p>
+<h2 id="莫名其妙的-Boxscore"><a href="#莫名其妙的-Boxscore" class="headerlink" title="莫名其妙的 Boxscore"></a>莫名其妙的 Boxscore</h2><p><img src="/images/tpbl-fantasy/6c5bdda42f9427e2e61d968886c7a099c936896fb81e281cddeb3257a5de2b6b.png" alt="沒點 more 前呈現的資料，我覺得這樣其實 ok"></p>
+<p><img src="/images/tpbl-fantasy/f5b0283d61b8a06e1a8be620cc783a6bf62c1232cbbacd48d9717b9eb1d7eff1.png" alt="點 more 會出現的 popup"></p>
 <p>按理來說 more 應該指的是更<strong>詳細</strong>的資料，而球員生涯成績應該會額外出現一些<strong>進階</strong>的數據，而在這裡的問題是，它把 IBB 及 BB 都合在一起了，讓我覺得有點意味不明，要嘛乾脆只出現基本數據就好，要嘛那個 more 就真的把數據詳實呈現，現在這樣有點不上不下。</p>
 <p>再來就是英文簡寫的問題，我想了一下才知道 SAC 就是 SH (Sacrifice Hit: number of sacrifice bunts which allow runners to advance on the basepaths)。其實 Boxscore 不管在 MLB 官網或像 ESPN 都做的很好，中職官方其實也不需要太傷腦筋</p>
-<p><img src="/project/images/tpbl-fantasy/4237debfe0695862f1aca29a82b6e0be114018b40ea7057e589c7ddb2f17a89f.png" alt="ESPN"></p>
-<p><img src="/project/images/tpbl-fantasy/353119238b0c8f156a9870689f436665e2f2f0af0a42e39eaf23f71010edf5d8.png" alt="MLB.com"></p>
+<p><img src="/images/tpbl-fantasy/4237debfe0695862f1aca29a82b6e0be114018b40ea7057e589c7ddb2f17a89f.png" alt="ESPN"></p>
+<p><img src="/images/tpbl-fantasy/353119238b0c8f156a9870689f436665e2f2f0af0a42e39eaf23f71010edf5d8.png" alt="MLB.com"></p>
 <h2 id="奇葩的遠古-Scorebox"><a href="#奇葩的遠古-Scorebox" class="headerlink" title="奇葩的遠古 Scorebox"></a>奇葩的遠古 Scorebox</h2><p>裡面球員姓名的格式是類似像: 王 光 輝， 中間的空格到底是怎麼回事，要挪抬嗎? 還是這樣看起比較厲害</p>
 <h2 id="球員點將錄"><a href="#球員點將錄" class="headerlink" title="球員點將錄"></a>球員點將錄</h2><p>要不是有這一頁，我都忘了曾經有第一金剛這隻球隊， 我代第一金剛球迷謝謝聯盟！</p>
 <h2 id="可憐的英文網站"><a href="#可憐的英文網站" class="headerlink" title="可憐的英文網站"></a>可憐的英文網站</h2><p>這部份<a target="_blank" rel="noopener" href="https://opinion.udn.com/opinion/story/10124/4510920">小人物 Hans</a> 其實已經講很多，中文版網站的資訊架構已經不怎麼樣了，英文版更是爛到不忍卒睹。CPBL TV 雖然是比較新，但也沒有比較好，一點進去我看到標楷體就關了</p>
-<p><img src="/project/images/tpbl-fantasy/0e1368afaef804ed7a3f648875ea94c5b615d50ddc72f72fa5867c29e5fecd3c.png" alt="算我求求你，先把標楷體拿掉，這個字體絕對不適合用在網頁上，既難閱讀也不美觀"></p>
+<p><img src="/images/tpbl-fantasy/0e1368afaef804ed7a3f648875ea94c5b615d50ddc72f72fa5867c29e5fecd3c.png" alt="算我求求你，先把標楷體拿掉，這個字體絕對不適合用在網頁上，既難閱讀也不美觀"></p>
 <h2 id="資訊架構跟網頁設計"><a href="#資訊架構跟網頁設計" class="headerlink" title="資訊架構跟網頁設計"></a>資訊架構跟網頁設計</h2><p>我本來是想講這兩個部份的，不過還是放到<del>付費區</del>以後有空再寫，因為實在太多可以吐槽</p>
 <hr>
 <h2 id="結尾"><a href="#結尾" class="headerlink" title="結尾"></a>結尾</h2><p>2020 因為疫情影響，中職成為世界第一個開打的職棒，但很明顯中職網站在國際化的努力不夠，很多方面都看起來像上個世紀的遺跡，我個人對中職官方最不理解的就是</p>
