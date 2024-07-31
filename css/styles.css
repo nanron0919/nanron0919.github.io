@@ -176,14 +176,44 @@ h1, h2, h3 {
 
 img {
 	max-width: 100%;
+	margin: auto;
+	display: block;
 }
 
 blockquote {
-	background: #2b2b2b;
+	border-left: 5px solid rgb(0, 181, 173);
 	padding-left: 5px;
 }
 
 blockquote p {
 	background: white;
 	padding-left: 10px;
+}
+
+.posted-at {
+	font-size: 0.725rem;
+	font-style: italic;
+}
+
+.tag-list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	gap: 4px;
+	flex-flow: wrap;
+	font-size: 0.725rem;
+	text-transform: capitalize;
+}
+
+.tag-list .tag-list-item {
+	padding: 2px 8px;
+	background: #eee;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	transition: all .3s ease;
+	background: #eee;
+}
+
+.tag-list .tag-list-item:hover {
+	background: #fff;
 }
